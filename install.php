@@ -29,10 +29,7 @@ $action = $_COOKIE['action'];
 $action = in_array($action, $actions) ? $action : 'license';
 $ispost = strtolower($_SERVER['REQUEST_METHOD']) == 'post';
 
-if(file_exists(IA_ROOT . '/data/install.lock') && $action != 'finish') {
-	header('location: ./index.php');
-	exit;
-}
+
 header('content-type: text/html; charset=utf-8');
 if($action == 'license') {
 	if($ispost) {
@@ -218,6 +215,10 @@ if($action == 'env') {
 		$ret['continue'] = false;
 	}
 	tpl_install_env($ret);
+}
+if(file_exists(IA_ROOT . '/data/install.lock') && $action != 'finish') {
+	header('location: ./index.php');
+	exit;
 }
 if($action == 'db') {
 	if($ispost) {
