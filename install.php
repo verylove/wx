@@ -216,11 +216,11 @@ if($action == 'env') {
 	}
 	tpl_install_env($ret);
 }
-if(file_exists(IA_ROOT . '/data/install.lock') && $action != 'finish') {
-	header('location: ./index.php');
-	exit;
-}
 if($action == 'db') {
+	if(file_exists(IA_ROOT . '/data/install.lock') && $action != 'finish') {
+		header('location: ./index.php');
+		exit;
+	}
 	if($ispost) {
 		if($_POST['do'] != 'continue') {
 			setcookie('action', 'env');
@@ -377,6 +377,10 @@ VER;
 
 }
 if($action == 'finish') {
+	if(file_exists(IA_ROOT . '/data/install.lock') && $action != 'finish') {
+		header('location: ./index.php');
+		exit;
+	}
 	setcookie('action', '', -10);
 	$dbfile = IA_ROOT . '/data/db.php';
 	@unlink($dbfile);
