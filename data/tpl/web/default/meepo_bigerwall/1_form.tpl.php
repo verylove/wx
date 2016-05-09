@@ -1,0 +1,673 @@
+<?php defined('IN_IA') or exit('Access Denied');?><input type="hidden" name="reply_id" value="<?php  echo $reply['id'];?>" />
+<div class="panel panel-default">
+	<div class="panel-heading">
+		微现场设置
+	</div>	
+	<div class="panel-body">
+		<ul class="nav nav-tabs" id="myTab">
+			<li class="active" ><a href="#tab_basic">基本设置</a></li>
+			<li><a href="#tab_return">回复设置</a></li>
+			<li><a href="#tab_style">全局设置</a></li>
+			<li><a href="#tab_msg">上墙设置</a></li>
+			<li><a href="#tab_qd">签到设置</a></li>
+			<li><a href="#tab_cj">抽奖设置</a></li>
+			<li><a href="#tab_vote">投票设置</a></li>
+			<li><a href="#tab_ddp">对对碰设置</a></li>
+			<li><a href="#tab_yyy">摇一摇设置</a></li>
+			<li><a href="#tab_danmu">弹幕设置</a></li>
+			
+			
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane  active" id="tab_basic">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									公众平台配置参数<br><br>
+									注意事项:<br>
+									<font color=red>1: 对于已经认证类公众号 若是提示管理员配置的参数有误，请核实接入的公众号时是否将appid以及appsecret填写了</font><br><br>
+									<font color=red>2: 对于未认证类公众号 请到顶部菜单的功能选项中 点击借用oauth权限中 选择一个认证服务号借用oauth
+									<br>
+									若是整个微擎系统不具备认证服务号  那么未认证的公众号  请不要使用本模块 切记
+									</font><br><br>
+									<font color=red>3: 未认证请选择未认证 根据实际情况选择 切记</font>
+								</div>
+								
+								<div class="panel-body">
+									 <div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 control-label">公众号二维码图片</label>
+										<div class="col-sm-9">
+											<?php  echo tpl_form_field_image('erweima', $reply['erweima']);?>
+											<span class="help-block">公众号二维码图片</span>
+										</div>
+									</div>
+									 <div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 control-label">公众平台是否认证</label>
+										<div class="col-sm-9">
+											<label class="radio-inline">
+												<input type="radio" name="renzhen" value="1" id="xh" <?php  if($reply['renzhen'] == '1') { ?>checked="true"<?php  } ?>> 是
+											</label>
+											<label class="radio-inline">
+												<input type="radio" name="renzhen" value="0" id="xh"  <?php  if($reply['renzhen'] == '0') { ?>checked="true"<?php  } ?>>否
+											</label>
+											<span class="help-block">按实际情况设置</span>
+										</div>
+									</div>
+								</div>
+							</div>
+			</div>
+			<div class="tab-pane" id="tab_return">
+										<div class="panel panel-danger">
+								<div class="panel-heading">
+									微现场粉丝录入信息回复设置
+								</div>
+								<div class="panel-body">
+									<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">本次活动是否需要参与者录入手机号码以及真实姓名</label>
+										<div class="col-sm-9 col-lg-8">
+											<label class="radio-inline">
+												<input type="radio" name="lurumobile" value="1" id="lurumobile" <?php  if($reply['lurumobile'] == '1') { ?>checked="true"<?php  } ?>> 是
+											</label>
+											<label class="radio-inline">
+												<input type="radio" name="lurumobile" value="0" id="lurumobile"  <?php  if($reply['lurumobile'] == '0') { ?>checked="true"<?php  } ?>>否
+											</label>
+											<span class="help-block">本次活动是否需要参与者录入手机号码以及真实姓名 选择否将无需录入</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">是否开启录入验证</label>
+										<div class="col-sm-9 col-lg-8">
+											<label class="radio-inline">
+												<input type="radio" name="lurucheck" value="1" id="lurumobile" <?php  if($reply['lurucheck'] == '1') { ?>checked="true"<?php  } ?>> 是
+											</label>
+											<label class="radio-inline">
+												<input type="radio" name="lurucheck" value="0" id="lurucheck"  <?php  if($reply['lurucheck'] == '0') { ?>checked="true"<?php  } ?>>否
+											</label>
+											<span class="help-block">本次活动是否需要参与者录入手机号码以及真实姓名 选择否将无需录入</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">开启录入验证、回复内容</label>
+										<div class="col-sm-9 col-lg-8">
+											<textarea style="height:200px;" class="form-control" name="luru_words" id="quit_tips" cols="70"><?php  echo $reply['luru_words'];?></textarea>
+											<span class="help-block">开启录入验证、回复内容</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">参与者发送的内容是否需要审核</label>
+										<div class="col-sm-9 col-lg-8">
+											<label class="radio-inline">
+												<input type="radio" name="isshow" value="1" id="isshow_1" <?php  if($reply['isshow'] == '1') { ?>checked="true"<?php  } ?>> 是
+											</label>
+											<label class="radio-inline">
+												<input type="radio" name="isshow" value="0" id="isshow_0"  <?php  if($reply['isshow'] == '0') { ?>checked="true"<?php  } ?>>否
+											</label>
+											<span class="help-block">开启录入验证、请提前添加或者导入粉丝真实姓名以及联系方式</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">是否开启前端管理</label>
+										<div class="col-sm-9 col-lg-8">
+											<label class="radio-inline">
+												<input type="radio" name="webopen" value="1" id="isshow_1" <?php  if($reply['webopen'] == '1') { ?>checked="true"<?php  } ?>> 是
+											</label>
+											<label class="radio-inline">
+												<input type="radio" name="webopen" value="0" id="isshow_0"  <?php  if($reply['webopen'] == '0') { ?>checked="true"<?php  } ?>>否
+											</label>
+											<span class="help-block">开启前端管理、可在前台管理审核内容</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">参与者进入本次活动提示的提示内容</label>
+										<div class="col-sm-9 col-lg-8">
+											<textarea style="height:200px;" class="form-control" name="enter_tips" id="enter_tips" cols="70"><?php  echo $reply['enter_tips'];?></textarea>
+											<span class="help-block">当参与者进入此次活动时，返回的提示信息。
+											</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">参与者关注扫码关注提示内容</label>
+										<div class="col-sm-9 col-lg-8">
+											<textarea style="height:200px;" class="form-control" name="subit_tips" id="subit_tips" cols="70"><?php  echo $reply['subit_tips'];?></textarea>
+											<span class="help-block">参与者是首次关注本公众号提示内容。
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">参与者发表图片或者文字成功提示内容</label>
+										<div class="col-sm-9 col-lg-8">
+											<textarea style="height:200px;" class="form-control" name="send_tips" id="send_tips" cols="70"><?php  echo $reply['send_tips'];?></textarea>
+											<span class="help-block">参与者发表图片或者文字成功提示内容</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">参与者退出本次活动关键字</label>
+										<div class="col-sm-9 col-lg-8">
+											<input type="text" value="<?php  echo $reply['quit_command'];?>" class="form-control" name="quit_command">
+											<span class="help-block">参与者退出活动的关键字，如果未设置则默认为“退出”</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">参与者主动退出提示内容</label>
+										<div class="col-sm-9 col-lg-8">
+											<textarea style="height:200px;" class="form-control" name="quit_tips" id="quit_tips" cols="70"><?php  echo $reply['quit_tips'];?></textarea>
+											<span class="help-block">参与者主动退出本次活动提示内容。</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">被系统自动踢出后，再次回复非本次活动关键词提示内容</label>
+										<div class="col-sm-9 col-lg-8">
+											<textarea style="height:200px;" class="form-control" name="chaoshi_tips" id="chaoshi_tips" cols="70"><?php  echo $reply['chaoshi_tips'];?></textarea>
+											<span class="help-block">有部分参与者可能长时间脱离活动，即为超时，将被自动系统踢出</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">超时时间【单位:秒】</label>
+										<div class="col-sm-9 col-lg-8">
+											<div class="input-group">
+												<input type="text" name="timeout" class="form-control"  value="<?php  echo $reply['timeout'];?>" />
+												<span class="input-group-addon">秒</span>
+											</div>
+											<span class="help-block">当参与者长时间未参与本次活动，超过此处设置的超时间时，用户自动被踢出话题。</span>
+										</div>
+									</div>
+							</div>
+							</div>
+			</div>
+			<div class="tab-pane" id="tab_style">
+											<div class="panel panel-info">
+							<div class="panel-heading">
+								微现场<font color=red>整体布局</font>基本设置
+							</div>
+							<div class="panel-body">
+								<div class="form-group">
+									<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">顶部logo设计</label>
+									<div class="col-sm-9 col-lg-8">
+										<?php  echo tpl_form_field_image('toplogo', $reply['toplogo']);?>
+										<span class="help-block">背景图片设置 <strong>规格 212*56</strong> 需要自己设计 参考默认图片 </span>
+									</div>
+								</div>
+								<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">活动风格选择</label>
+										<div class="col-sm-9 col-lg-8">
+											<select name="indexstyle" class='form-control'>
+													<?php  if(is_array($sty_name)) { foreach($sty_name as $key => $row) { ?>
+													<option value="<?php  echo $key;?>" <?php  if($reply['indexstyle']==$key) { ?> selected<?php  } ?>><?php  echo $row;?></option>
+													<?php  } } ?>
+											</select>
+											<span class="help-block"> 请到前台预览所选风格</span>
+											
+										</div>
+										
+								</div>
+								<div class="form-group">
+									<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">背景图片</label>
+									<div class="col-sm-9 col-lg-8">
+										<?php  echo tpl_form_field_image('bgimg', $reply['bgimg']);?>
+										<span class="help-block">背景图片设置 <strong>规格 1440*828</strong> 需要自己设计 注意<strong>自定义背景后首页的风格按钮将不显示 </strong></span>
+									</div>
+								</div>
+								<div class="form-group">
+											<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">整体文字颜色</label>
+											<div class="col-sm-9 col-lg-8">
+											   <?php  echo tpl_form_field_color('fontcolor',$reply['fontcolor'])?>
+											</div>
+											
+										</div>
+								<div class="form-group">
+									<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">主持人登录密码</label>
+									<div class="col-sm-9 col-lg-8">
+										<input type="text"  class="form-control" name="loginpass" value="<?php  echo $reply['loginpass'];?>">
+										<span class="help-block">主持人登录密码</span>
+									</div>
+								</div>
+								<div class="form-group">
+								<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">登录页背景图片</label>
+								<div class="col-sm-9 col-lg-8">
+									<?php  echo tpl_form_field_image('login_bg', $reply['login_bg']);?>
+									<span class="help-block">登录页背景图片 <strong>规格 1440*828  </strong></span>
+								</div>
+							    </div>
+								<div class="form-group">
+									<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">进入首页默认开启哪面墙</label>
+									<div class="col-sm-9 col-lg-8">
+										<label class="radio-inline">
+											<input type="radio" name="defaultshow" value="1" id="xh" <?php  if($reply['defaultshow'] == '1') { ?>checked="true"<?php  } ?>>签到墙
+										</label>
+										<label class="radio-inline">
+											<input type="radio" name="defaultshow" value="2" id="xh"  <?php  if($reply['defaultshow'] == '2') { ?>checked="true"<?php  } ?>>留言墙
+										</label>
+										<span class="help-block">选择哪个默认将打开哪面墙</span>
+									</div>
+								</div>
+								<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">版权信息</label>
+										<div class="col-sm-9 col-lg-8">
+													<input type="text" name="votepower" value="<?php  echo $reply['votepower'];?>" class="form-control">
+
+											<span class="help-block">版权信息</span>
+										</div>
+									</div>
+						</div>
+						</div>
+			</div>
+			<div class="tab-pane" id="tab_msg">
+							<div class="panel panel-warning">
+								<div class="panel-heading">
+									微现场<font color=red>留言墙</font>基本设置
+								</div>
+							<div class="panel-body">
+							<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">是否开启循环播放</label>
+										<div class="col-sm-9 col-lg-8">
+											<label class="radio-inline">
+												<input type="radio" name="followagain" value="1" id="isshow_1" <?php  if($reply['followagain'] == '1') { ?>checked="true"<?php  } ?>> 是
+											</label>
+											<label class="radio-inline">
+												<input type="radio" name="followagain" value="2" id="isshow_0"  <?php  if($reply['followagain'] == '2') { ?>checked="true"<?php  } ?>>否
+											</label>
+											<span class="help-block">选择开启留言墙将循环播放</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">留言墙数据加载时间间隔</label>
+										<div class="col-sm-9 col-lg-8">
+										<div class="input-group">
+										<input type="text" name="refreshtime" class="form-control"  value="<?php  echo $reply['refreshtime'];?>" />
+												<span class="input-group-addon">秒</span>
+										</div>
+										<span class="help-block">留言墙留言墙数据加载时间间隔 不要设置低于1秒</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">留言墙滚动所需时间</label>
+										<div class="col-sm-9 col-lg-8">
+										<div class="input-group">
+										<input type="text" name="saytasktime" class="form-control"  value="<?php  echo $reply['saytasktime'];?>" />
+												<span class="input-group-addon">秒</span>
+										</div>
+										<span class="help-block">留言墙滚动所需时间 不要设置低于3秒</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">留言墙顶部标题设置</label>
+										<div class="col-sm-9 col-lg-8">
+											<textarea style="height:200px;" class="form-control" name="saywords" id="quit-tips" cols="70"><?php  echo $reply['saywords'];?></textarea>
+											<span class="help-block">留言墙顶部标题设置</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">敏感词汇</label>
+										<div class="col-sm-9 col-lg-8">
+											 <textarea style="height:200px;" class="form-control" id="mg_words" name="mg_words" cols="70"><?php  echo $reply['mg_words'];?></textarea>
+											 <div class="help-block">词汇之间请以#隔开、如: 你妹的#我艹你妹</div>
+										</div>
+									</div>
+
+							</div>
+							</div>
+			</div>
+			<div class="tab-pane" id="tab_qd">
+						<div class="panel panel-success">
+							<div class="panel-heading">
+								微现场<font color=red>签到墙</font>基本设置
+							</div>
+							 <div class="panel-body">
+								<div class="form-group">
+									<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">是否开启签到墙</label>
+									<div class="col-sm-9 col-lg-8">
+										<label class="radio-inline">
+											<input type="radio" name="qdqshow" value="1" id="xh" <?php  if($reply['qdqshow'] == '1') { ?>checked="true"<?php  } ?>> 是
+										</label>
+										<label class="radio-inline">
+											<input type="radio" name="qdqshow" value="0" id="xh"  <?php  if($reply['qdqshow'] == '0') { ?>checked="true"<?php  } ?>>否
+										</label>
+										<span class="help-block">不开启将不显示</span>
+									</div>
+								</div>
+								<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">签到关键词设置</label>
+										<div class="col-sm-9 col-lg-8">
+													<input type="text" name="qd_keyword" value="<?php  if(!empty($reply['qd_keyword'])) { ?><?php  echo $reply['qd_keyword'];?><?php  } else { ?>签到<?php  } ?>" class="form-control">
+
+											<span class="help-block">默认为签到</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">签到成功回复内容</label>
+										<div class="col-sm-9 col-lg-8">
+											<textarea style="height:200px;" class="form-control" name="sign_success" id="quit_tips" cols="70"><?php  echo $reply['sign_success'];?></textarea>
+											<span class="help-block">签到成功回复内容</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">重复签到回复内容</label>
+										<div class="col-sm-9 col-lg-8">
+											<textarea style="height:200px;" class="form-control" name="had_sign_content" id="quit_tips" cols="70"><?php  echo $reply['had_sign_content'];?></textarea>
+											<span class="help-block">重复签到回复内容</span>
+										</div>
+									</div>
+								<div class="form-group">
+									<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">签到是否需要审核</label>
+									<div class="col-sm-9 col-lg-8">
+										<label class="radio-inline">
+											<input type="radio" name="signcheck" value="1" id="signcheck" <?php  if($reply['signcheck'] == '1') { ?>checked="true"<?php  } ?>> 是
+										</label>
+										<label class="radio-inline">
+											<input type="radio" name="signcheck" value="2" id="signcheck"  <?php  if($reply['signcheck'] == '2') { ?>checked="true"<?php  } ?>>否
+										</label>
+										<span class="help-block">开启审核了、审核通过的才会显示</span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">签到墙顶部标题设置</label>
+									<div class="col-sm-9 col-lg-8">
+										<textarea style="height:200px;" class="form-control" name="signwords" id="quit-tips" cols="70"><?php  echo $reply['signwords'];?></textarea>
+										<span class="help-block">签到墙顶部标题设置</span>
+									</div>
+								</div>
+							</div>
+						</div>	
+			</div>
+			<div class="tab-pane" id="tab_cj">
+								<div class="panel panel-success">
+						<div class="panel-heading">
+							微现场<font color=red>抽奖</font>基本设置
+						</div>
+						<div class="panel-body">
+							<div class="form-group">
+								<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">是否开启抽奖</label>
+								<div class="col-sm-9 col-lg-8">
+									<label class="radio-inline">
+										<input type="radio" name="cjshow" value="1" id="xh" <?php  if($reply['cjshow'] == '1') { ?>checked="true"<?php  } ?>> 是
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="cjshow" value="0" id="xh"  <?php  if($reply['cjshow'] == '0') { ?>checked="true"<?php  } ?>>否
+									</label>
+									<span class="help-block">不开启将不显示</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">本次活动 抽奖名称</label>
+								<div class="col-sm-9 col-lg-8">
+											<input type="text" name="cjname" value="<?php  echo $reply['cjname'];?>" class="form-control">
+
+									<span class="help-block">本次活动抽奖活动名称 <strong>尽量精简 不超过5个汉字 </strong></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">抽奖页主题图片</label>
+								<div class="col-sm-9 col-lg-8">
+									<?php  echo tpl_form_field_image('cjimgurl', $reply['cjimgurl']);?>
+									<span class="help-block">抽奖页主题图片 <strong>规格 172*172 最好为PNG格式 </strong></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">按人数抽奖是否开启</label>
+								<div class="col-sm-9 col-lg-8">
+									<label class="radio-inline">
+										<input type="radio" name="cjnum_tag" value="1" id="xh" <?php  if($reply['cjnum_tag'] == '1') { ?>checked="true"<?php  } ?>> 是
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="cjnum_tag" value="2" id="xh"  <?php  if($reply['cjnum_tag'] == '2') { ?>checked="true"<?php  } ?>>否
+									</label>
+									<span class="help-block">选择否将不显示按人数抽奖</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">按人数抽奖是否可以重复中奖</label>
+								<div class="col-sm-9 col-lg-8">
+									<label class="radio-inline">
+										<input type="radio" name="cjnum_exclude" value="1" id="xh" <?php  if($reply['cjnum_exclude'] == '1') { ?>checked="true"<?php  } ?>> 否
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="cjnum_exclude" value="2" id="xh"  <?php  if($reply['cjnum_exclude'] == '2') { ?>checked="true"<?php  } ?>>是
+									</label>
+									<span class="help-block">选择是 抽奖将可能出现一个人中多次的情况</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">抽奖顶部标题设置</label>
+								<div class="col-sm-9 col-lg-8">
+									<textarea style="height:200px;" class="form-control" name="cjwords" id="quit-tips" cols="70"><?php  echo $reply['cjwords'];?></textarea>
+									<span class="help-block">抽奖顶部标题设置</span>
+								</div>
+							</div>
+					</div>
+					</div>
+			</div>
+			<div class="tab-pane" id="tab_vote">
+										<div class="panel panel-success">
+								<div class="panel-heading">
+									微现场<font color=red>投票</font>基本设置<br><br>
+									若是活动不需要投票 请选择不开启
+								</div>
+								<div class="panel-body">
+									<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">是否开启投票</label>
+										<div class="col-sm-9 col-lg-8">
+											<label class="radio-inline">
+												<input type="radio" name="tpshow" value="1" id="xh" <?php  if($reply['tpshow'] == '1') { ?>checked="true"<?php  } ?>> 是
+											</label>
+											<label class="radio-inline">
+												<input type="radio" name="tpshow" value="0" id="xh"  <?php  if($reply['tpshow'] == '0') { ?>checked="true"<?php  } ?>>否
+											</label>
+											<span class="help-block">不开启将不显示</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">投票关键词设置</label>
+										<div class="col-sm-9 col-lg-8">
+													<input type="text" name="tp_keyword" value="<?php  if(!empty($reply['tp_keyword'])) { ?><?php  echo $reply['tp_keyword'];?><?php  } else { ?>投票<?php  } ?>" class="form-control">
+
+											<span class="help-block">默认为投票</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">投票起止时间</label>
+										<div class="col-sm-9 col-lg-8">
+											
+													<?php echo tpl_form_field_daterange('times',array('start'=>date('Y-m-d H:m:s',empty($reply['starttime'])?time():$reply['starttime']),'end'=>date('Y-m-d H:m:s',empty($reply['endtime'])?time()+3600*240:$reply['endtime'])));?>
+											<span class="help-block">投票起止时间</strong></span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">投票总人数限制</label>
+										<div class="col-sm-9 col-lg-8">
+													<input type="text" name="votemam" value="<?php  echo $reply['votemam'];?>" class="form-control">
+
+											<span class="help-block">投票总人数限制 当投票总人数 达到次数目 将不能再投票</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">投票主题设置</label>
+										<div class="col-sm-9 col-lg-8">
+													<input type="text" name="votetitle" value="<?php  echo $reply['votetitle'];?>" class="form-control" >
+
+											<span class="help-block">投票主题设置</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">投票结果刷新时间</label>
+										<div class="col-sm-9 col-lg-8">
+													<input type="text" name="voterefreshtime" value="<?php  echo $reply['voterefreshtime'];?>" class="form-control">
+
+											<span class="help-block">投票结果刷新时间 设置时不要低于10秒</span>
+										</div>
+									</div>
+									
+									
+									<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">投票顶部标题设置</label>
+										<div class="col-sm-9 col-lg-8">
+											<textarea style="height:200px;" class="form-control" name="votewords" id="quit-tips" cols="70"><?php  echo $reply['votewords'];?></textarea>
+											<span class="help-block">投票顶部标题设置</span>
+										</div>
+									</div>
+							</div>
+							</div>
+			</div>
+			<div class="tab-pane" id="tab_ddp">
+									<div class="panel panel-success">
+							<div class="panel-heading">
+								微现场<font color=red>对对碰</font>基本设置
+							</div>
+							<div class="panel-body">
+								<div class="form-group">
+									<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">是否开启对对碰</label>
+									<div class="col-sm-9 col-lg-8">
+										<label class="radio-inline">
+											<input type="radio" name="ddpshow" value="1" id="xh" <?php  if($reply['ddpshow'] == '1') { ?>checked="true"<?php  } ?>> 是
+										</label>
+										<label class="radio-inline">
+											<input type="radio" name="ddpshow" value="0" id="xh"  <?php  if($reply['ddpshow'] == '0') { ?>checked="true"<?php  } ?>>否
+										</label>
+										<span class="help-block">不开启将不显示</span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">对对碰顶部标题设置</label>
+									<div class="col-sm-9 col-lg-8">
+										<textarea style="height:200px;" class="form-control" name="ddpwords" id="quit-tips" cols="70"><?php  echo $reply['ddpwords'];?></textarea>
+										<span class="help-block">对对碰顶部标题设置</span>
+									</div>
+								</div>
+						</div>
+						</div>
+			</div>
+			<div class="tab-pane" id="tab_yyy">
+								<div class="panel panel-success">
+						<div class="panel-heading">
+							微现场<font color=red>摇一摇</font>基本设置
+							<br><br>
+							注意:
+							当参与摇一摇人数较多将消耗大量带宽以及cpu 
+							100人参与摇一摇活动 标配为: 2g内存 双核cpu 5M带宽
+						</div>
+						<div class="panel-body">
+							<div class="form-group">
+								<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">是否开启摇一摇</label>
+								<div class="col-sm-9 col-lg-8">
+									<label class="radio-inline">
+										<input type="radio" name="yyyshow" value="1" id="xh" <?php  if($reply['yyyshow'] == '1') { ?>checked="true"<?php  } ?>> 是
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="yyyshow" value="0" id="xh"  <?php  if($reply['yyyshow'] == '0') { ?>checked="true"<?php  } ?>>否
+									</label>
+									<span class="help-block">不开启将不显示</span>
+								</div>
+							</div>
+							<div class="form-group">
+										<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">摇一摇关键词设置</label>
+										<div class="col-sm-9 col-lg-8">
+													<input type="text" name="yyy_keyword" value="<?php  if(!empty($reply['yyy_keyword'])) { ?><?php  echo $reply['yyy_keyword'];?><?php  } else { ?>摇一摇<?php  } ?>" class="form-control">
+
+											<span class="help-block">默认为摇一摇</span>
+										</div>
+									</div>
+							<div class="form-group">
+								<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">摇一摇主题设置设置</label>
+								<div class="col-sm-9 col-lg-8">
+											<input type="text" name="yyyzhuti" value="<?php  echo $reply['yyyzhuti'];?>" class="form-control">
+
+									<span class="help-block">摇一摇主题设置设置</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">摇一摇活动最大摇晃次数</label>
+								<div class="col-sm-9 col-lg-8">
+											<input type="text" name="yyyendtime" value="<?php  echo $reply['yyyendtime'];?>" class="form-control">
+
+									<span class="help-block">摇一摇活动最大摇晃次数</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">摇一摇显示的总人数设置</label>
+								<div class="col-sm-9 col-lg-8">
+											<input type="text" name="yyyshowperson" value="<?php  echo $reply['yyyshowperson'];?>" class="form-control">
+									<span class="help-block">摇一摇显示的总人数设置</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">摇一摇真实参与人数设置</label>
+								<div class="col-sm-9 col-lg-8">
+											<input type="text" name="yyyrealman" value="<?php  echo $reply['yyyrealman'];?>" class="form-control">
+									<span class="help-block">摇一摇真实参与人数设置 不填写或者填写0 将取全部用户</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">摇一摇背景图片</label>
+								<div class="col-sm-9 col-lg-8">
+									<?php  echo tpl_form_field_image('yyybgimg', $reply['yyybgimg']);?>
+									<span class="help-block">摇一摇背景图片 <strong>规格 1440*828</strong></span>
+								</div>
+							</div>
+							
+					</div>
+					</div>
+			</div>
+			<div class="tab-pane" id="tab_danmu">
+				<div class="panel panel-success">
+						<div class="panel-heading">
+							微现场<font color=red>弹幕</font>基本设置
+						</div>
+						<div class="panel-body">
+							<div class="form-group">
+								<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">是否开启弹幕</label>
+								<div class="col-sm-9 col-lg-8">
+									<label class="radio-inline">
+										<input type="radio" name="danmushow" value="1" id="xh" <?php  if($reply['danmushow'] == '1') { ?>checked="true"<?php  } ?>> 是
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="danmushow" value="0" id="xh"  <?php  if($reply['danmushow'] == '0') { ?>checked="true"<?php  } ?>>否
+									</label>
+									<span class="help-block">不开启将不显示</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">每条弹幕滚过屏幕所花时间</label>
+								<div class="col-sm-9 col-lg-8">
+								<div class="input-group">
+								<input type="text" name="danmutime" class="form-control"  value="<?php  echo $reply['danmutime'];?>" />
+										<span class="input-group-addon">秒</span>
+								</div>
+								<span class="help-block">每条弹幕滚过屏幕所花时间 不要设置低于20秒</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">弹幕页面顶部标题设置</label>
+								<div class="col-sm-9 col-lg-8">
+									<textarea style="height:200px;" class="form-control" name="danmuwords" id="quit-tips" cols="70"><?php  echo $reply['danmuwords'];?></textarea>
+									<span class="help-block">弹幕页面顶部标题设置</span>
+								</div>
+							</div>
+							<div class="form-group" style="display:none">
+								<label class="col-xs-12 col-sm-3 col-md-2 col-lg-4 control-label">弹幕背景图片</label>
+								<div class="col-sm-9 col-lg-8">
+									<?php  echo tpl_form_field_image('danmubgimg', $reply['danmubgimg']);?>
+									<span class="help-block">弹幕背景图片 <strong>规格 1440*828</strong> 需要自己设计</span>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+
+
+<!-- 此函数为扩展验证表单JS，您有需要验证可以实现此函数提示错误信息，当然也可以不实现。-->
+<script type="text/javascript">
+<!--	
+	$(function () {
+		window.optionchanged = false;
+		$('#myTab a').click(function (e) {
+			e.preventDefault();//阻止a链接的跳转行为
+			$(this).tab('show');//显示当前选中的链接及关联的content
+		})
+	});
+
+
+	
+//-->	
+</script>
