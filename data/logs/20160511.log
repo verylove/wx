@@ -1,0 +1,86 @@
+2016-05-11 16:15:59 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_4c58141c2b78]]></ToUserName>
+<FromUserName><![CDATA[ol9P1jknBNIfOudG6NiwyE-B_Jss]]></FromUserName>
+<CreateTime>1462954558</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[cds]]></Content>
+<MsgId>6283341982634137596</MsgId>
+</xml>
+
+2016-05-11 16:16:59 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_4c58141c2b78]]></ToUserName>
+<FromUserName><![CDATA[ol9P1jknBNIfOudG6NiwyE-B_Jss]]></FromUserName>
+<CreateTime>1462954619</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[cds]]></Content>
+<MsgId>6283342244627142669</MsgId>
+</xml>
+
+2016-05-11 16:19:14 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_4c58141c2b78]]></ToUserName>
+<FromUserName><![CDATA[ol9P1jknBNIfOudG6NiwyE-B_Jss]]></FromUserName>
+<CreateTime>1462954754</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[cds]]></Content>
+<MsgId>6283342824447727716</MsgId>
+</xml>
+
+2016-05-11 16:21:12 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_4c58141c2b78]]></ToUserName>
+<FromUserName><![CDATA[ol9P1jknBNIfOudG6NiwyE-B_Jss]]></FromUserName>
+<CreateTime>1462954872</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[一天]]></Content>
+<MsgId>6283343331253868695</MsgId>
+</xml>
+
+2016-05-11 16:21:12 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-05-11 16:21:12 response :
+------------
+
+2016-05-11 16:23:39 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_4c58141c2b78]]></ToUserName>
+<FromUserName><![CDATA[ol9P1jknBNIfOudG6NiwyE-B_Jss]]></FromUserName>
+<CreateTime>1462955019</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[cds]]></Content>
+<MsgId>6283343962614061275</MsgId>
+</xml>
+
+2016-05-11 16:24:24 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_4c58141c2b78]]></ToUserName>
+<FromUserName><![CDATA[ol9P1jknBNIfOudG6NiwyE-B_Jss]]></FromUserName>
+<CreateTime>1462955064</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[一]]></Content>
+<MsgId>6283344155887589620</MsgId>
+</xml>
+
+2016-05-11 16:24:24 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-05-11 16:24:24 response :
+------------
+
